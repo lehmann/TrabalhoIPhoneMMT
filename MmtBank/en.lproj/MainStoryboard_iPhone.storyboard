@@ -1,0 +1,798 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="aeW-Wf-BIN">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="z80-z0-0ax">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="aeW-Wf-BIN" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="oe2-5V-Fl9">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="wci-dt-5ZJ" kind="relationship" relationship="viewControllers" id="7hy-UU-5R6"/>
+                        <segue destination="h4m-Bc-kkj" kind="relationship" relationship="viewControllers" id="OxK-v9-bQg"/>
+                        <segue destination="JCI-7G-rs6" kind="relationship" relationship="viewControllers" id="O9f-HZ-VuP"/>
+                        <segue destination="hf7-oX-e8H" kind="relationship" relationship="viewControllers" id="RdP-am-TeF"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JHA-7f-LI6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="348" y="64"/>
+        </scene>
+        <!--Bank Account View Controller - Contas-->
+        <scene sceneID="q9g-cX-gDU">
+            <objects>
+                <viewController id="ykC-4q-QJE" customClass="BankAccountViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pFi-8y-W4j">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Lip-vq-hvN">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Cell" id="ezI-Zn-HWi">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ykC-4q-QJE" id="vBI-OE-Fn8"/>
+                                    <outlet property="delegate" destination="ykC-4q-QJE" id="OGz-Rx-eqv"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Lip-vq-hvN" firstAttribute="trailing" secondItem="pFi-8y-W4j" secondAttribute="trailing" type="default" id="5o4-gh-S0Z"/>
+                            <constraint firstItem="Lip-vq-hvN" firstAttribute="leading" secondItem="pFi-8y-W4j" secondAttribute="leading" type="default" id="Cse-IG-1mM"/>
+                            <constraint firstItem="Lip-vq-hvN" firstAttribute="top" secondItem="pFi-8y-W4j" secondAttribute="top" type="default" id="dhY-ad-SF2"/>
+                            <constraint firstItem="Lip-vq-hvN" firstAttribute="bottom" secondItem="pFi-8y-W4j" secondAttribute="bottom" type="default" id="uw7-JJ-v6N"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Contas" id="Uyl-ih-d3T">
+                        <barButtonItem key="backBarButtonItem" title="&lt;" id="jWV-kA-RNH"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="7a9-kT-oAc">
+                            <connections>
+                                <action selector="addNovo:" destination="ykC-4q-QJE" id="Ptb-ce-JDI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bankAccountTableView" destination="Lip-vq-hvN" id="xSb-TX-fuk"/>
+                        <segue destination="hFU-LO-MwP" kind="push" identifier="showDetailsFromBankAccount" id="PfX-zP-QBm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="23u-ic-oUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1590" y="783"/>
+        </scene>
+        <!--Bank Account Details View Controller - Conta Corrente-->
+        <scene sceneID="hT8-3m-Zw5">
+            <objects>
+                <viewController title="Conta Corrente" id="hFU-LO-MwP" customClass="BankAccountDetailsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ReA-Du-1WW">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Número da Conta" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVd-J2-A3y">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="241" id="CWD-FM-jKO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qtz-0h-ZpN">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Número da Agência" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqM-SD-Sjm">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="225" id="njL-li-DKd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rdk-vS-f4f">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Numero do Banco" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oh7-dW-0gZ">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Vc-Ah-Kxc">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iqM-SD-Sjm" firstAttribute="leading" secondItem="ReA-Du-1WW" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="2NH-dz-jsi"/>
+                            <constraint firstItem="yVd-J2-A3y" firstAttribute="leading" secondItem="ReA-Du-1WW" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="2bl-cF-6a2"/>
+                            <constraint firstItem="yVd-J2-A3y" firstAttribute="top" secondItem="7Vc-Ah-Kxc" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="32O-zi-FqU"/>
+                            <constraint firstItem="Rdk-vS-f4f" firstAttribute="top" secondItem="iqM-SD-Sjm" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="6ch-y2-jBZ"/>
+                            <constraint firstItem="7Vc-Ah-Kxc" firstAttribute="leading" secondItem="ReA-Du-1WW" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Eog-3a-mba"/>
+                            <constraint firstItem="oh7-dW-0gZ" firstAttribute="leading" secondItem="ReA-Du-1WW" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="JIo-n2-i5L"/>
+                            <constraint firstItem="Rdk-vS-f4f" firstAttribute="leading" secondItem="ReA-Du-1WW" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Q2M-SJ-O5P"/>
+                            <constraint firstItem="Qtz-0h-ZpN" firstAttribute="top" secondItem="yVd-J2-A3y" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="VvO-ur-DOb"/>
+                            <constraint firstItem="oh7-dW-0gZ" firstAttribute="top" secondItem="ReA-Du-1WW" secondAttribute="top" type="default" id="Xis-Up-JnS"/>
+                            <constraint firstItem="iqM-SD-Sjm" firstAttribute="top" secondItem="Qtz-0h-ZpN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Ym2-aC-jfy"/>
+                            <constraint firstAttribute="trailing" secondItem="Qtz-0h-ZpN" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="k7x-mC-al0"/>
+                            <constraint firstItem="7Vc-Ah-Kxc" firstAttribute="top" secondItem="oh7-dW-0gZ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="kHN-zY-Fv0"/>
+                            <constraint firstAttribute="trailing" secondItem="Rdk-vS-f4f" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="pgB-xs-4wS"/>
+                            <constraint firstItem="Qtz-0h-ZpN" firstAttribute="leading" secondItem="ReA-Du-1WW" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="rCX-FO-YvT"/>
+                            <constraint firstAttribute="trailing" secondItem="7Vc-Ah-Kxc" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="y3Y-BO-7OB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ka9-dN-emT">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="AbU-wm-Vf8">
+                            <connections>
+                                <action selector="saveBankInfo:" destination="hFU-LO-MwP" id="DLU-kH-jEU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textFieldAccountAgency" destination="Rdk-vS-f4f" id="yiH-gw-mWe"/>
+                        <outlet property="textFieldAccountBank" destination="7Vc-Ah-Kxc" id="uJ7-7T-wiQ"/>
+                        <outlet property="textFieldAccountNumber" destination="Qtz-0h-ZpN" id="isR-GI-6Zm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yej-VM-yHG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2237" y="783"/>
+        </scene>
+        <!--Bank View Controller - Bancos-->
+        <scene sceneID="j9o-kz-oQL">
+            <objects>
+                <viewController id="gR2-sE-ZR1" customClass="BankViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="H4s-PJ-awl">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ZGY-se-Ixz">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Cell" id="Svo-Xu-swI">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="gR2-sE-ZR1" id="P5u-Kz-eFi"/>
+                                    <outlet property="delegate" destination="gR2-sE-ZR1" id="bCx-aH-zYL"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZGY-se-Ixz" firstAttribute="leading" secondItem="H4s-PJ-awl" secondAttribute="leading" type="default" id="7cy-EG-Gim"/>
+                            <constraint firstItem="ZGY-se-Ixz" firstAttribute="trailing" secondItem="H4s-PJ-awl" secondAttribute="trailing" type="default" id="96P-Kr-Qwd"/>
+                            <constraint firstItem="ZGY-se-Ixz" firstAttribute="bottom" secondItem="H4s-PJ-awl" secondAttribute="bottom" type="default" id="TSM-2l-cDX"/>
+                            <constraint firstItem="ZGY-se-Ixz" firstAttribute="top" secondItem="H4s-PJ-awl" secondAttribute="top" type="default" id="gV5-ed-Gaz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Bancos" id="3o5-Ux-8wy">
+                        <barButtonItem key="backBarButtonItem" title="&lt;" id="vlM-Ig-21I"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="W6v-pY-EnH">
+                            <connections>
+                                <action selector="addNovo:" destination="gR2-sE-ZR1" id="x9h-oO-se8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bankTableView" destination="ZGY-se-Ixz" id="4MF-0n-lBX"/>
+                        <segue destination="yb9-yO-ffV" kind="push" identifier="showDetailsFromBank" id="bkn-Hn-VB6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fAq-ZY-uEC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1590" y="64"/>
+        </scene>
+        <!--Bank Details View Controller - Banco-->
+        <scene sceneID="k7n-f2-duC">
+            <objects>
+                <viewController title="Banco" id="yb9-yO-ffV" customClass="BankDetailsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JDZ-C5-DSS">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Nome do Banco" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nv7-jQ-c7Q">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cZ6-oZ-myg">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Número do Banco" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4Q-d4-m1o">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1xX-LA-CxL">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="A4Q-d4-m1o" firstAttribute="leading" secondItem="JDZ-C5-DSS" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="3S5-8r-C4l"/>
+                            <constraint firstItem="cZ6-oZ-myg" firstAttribute="top" secondItem="JDZ-C5-DSS" secondAttribute="top" constant="34" id="C0g-ee-9tx"/>
+                            <constraint firstItem="1xX-LA-CxL" firstAttribute="top" secondItem="A4Q-d4-m1o" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="OoI-dc-rFR"/>
+                            <constraint firstItem="nv7-jQ-c7Q" firstAttribute="top" secondItem="JDZ-C5-DSS" secondAttribute="top" constant="12" id="UWZ-LP-ACd"/>
+                            <constraint firstItem="nv7-jQ-c7Q" firstAttribute="leading" secondItem="JDZ-C5-DSS" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Udl-1T-oI0"/>
+                            <constraint firstItem="1xX-LA-CxL" firstAttribute="leading" secondItem="JDZ-C5-DSS" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ZYA-9w-pHo"/>
+                            <constraint firstItem="A4Q-d4-m1o" firstAttribute="top" secondItem="JDZ-C5-DSS" secondAttribute="top" constant="90" id="bFw-nI-VFz"/>
+                            <constraint firstAttribute="trailing" secondItem="1xX-LA-CxL" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="fRp-nK-hzA"/>
+                            <constraint firstAttribute="trailing" secondItem="cZ6-oZ-myg" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="keV-Mm-h4K"/>
+                            <constraint firstItem="cZ6-oZ-myg" firstAttribute="leading" secondItem="JDZ-C5-DSS" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="knR-lx-gIr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3st-9q-mo6">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="N1b-bN-fgZ">
+                            <connections>
+                                <action selector="saveBankInfo:" destination="yb9-yO-ffV" id="uxz-yx-kB8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textFieldBankName" destination="cZ6-oZ-myg" id="Our-zS-6Qp"/>
+                        <outlet property="textFieldBankNumber" destination="1xX-LA-CxL" id="LQY-L3-0hI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fDw-7f-9JO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2237" y="64"/>
+        </scene>
+        <!--Person View Controller - Clientes-->
+        <scene sceneID="f9D-1P-IXY">
+            <objects>
+                <viewController id="kGf-eR-qv8" customClass="PersonViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AvE-zX-WDs">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="r0j-3v-ufJ">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Cell" id="GbY-fR-pFW">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="kGf-eR-qv8" id="Ta0-8n-cwt"/>
+                                    <outlet property="delegate" destination="kGf-eR-qv8" id="Jyu-rd-Gro"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="r0j-3v-ufJ" firstAttribute="top" secondItem="AvE-zX-WDs" secondAttribute="top" type="default" id="cx7-Bn-9z7"/>
+                            <constraint firstItem="r0j-3v-ufJ" firstAttribute="leading" secondItem="AvE-zX-WDs" secondAttribute="leading" type="default" id="mzj-83-nr1"/>
+                            <constraint firstItem="r0j-3v-ufJ" firstAttribute="trailing" secondItem="AvE-zX-WDs" secondAttribute="trailing" type="default" id="poP-fL-wqi"/>
+                            <constraint firstItem="r0j-3v-ufJ" firstAttribute="bottom" secondItem="AvE-zX-WDs" secondAttribute="bottom" type="default" id="w3Q-bN-hfs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Clientes" id="gya-0R-v80">
+                        <barButtonItem key="backBarButtonItem" title="&lt;" id="8Mz-S4-uq5"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="QOT-aP-Rip">
+                            <connections>
+                                <action selector="addNovo:" destination="kGf-eR-qv8" id="LWa-lD-Kvt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="r0j-3v-ufJ" id="K4C-9T-t6I"/>
+                        <segue destination="KuH-yx-YvJ" kind="push" identifier="showDetailsFromPerson" id="Jhs-9Y-hjn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hNm-Ua-KtP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1580" y="-668"/>
+        </scene>
+        <!--Person Details View Controller - Cliente-->
+        <scene sceneID="v7w-2i-5kd">
+            <objects>
+                <viewController title="Cliente" id="KuH-yx-YvJ" customClass="PersonDetailsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HuQ-oS-NkW">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpR-be-EXY">
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Nome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OsY-r0-Zs8">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sobrenome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPn-LU-6CW">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Telefone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="379-IV-4CY">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="E-mail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tG0-ni-tr8">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z6R-Uj-weL">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xnW-dU-xLb">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="285" id="JEu-pW-QPK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ubV-8n-oof">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v9y-e3-z6v">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="v9y-e3-z6v" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="1E6-Ds-8lh"/>
+                                    <constraint firstItem="379-IV-4CY" firstAttribute="leading" secondItem="mpR-be-EXY" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="6Wi-V0-XNR"/>
+                                    <constraint firstItem="tG0-ni-tr8" firstAttribute="top" secondItem="ubV-8n-oof" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="BN5-hx-vnU"/>
+                                    <constraint firstItem="Z6R-Uj-weL" firstAttribute="top" secondItem="OsY-r0-Zs8" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="DdU-QQ-SWM"/>
+                                    <constraint firstItem="xnW-dU-xLb" firstAttribute="top" secondItem="WPn-LU-6CW" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="EHh-4s-J0X"/>
+                                    <constraint firstItem="ubV-8n-oof" firstAttribute="leading" secondItem="xnW-dU-xLb" secondAttribute="leading" type="default" id="FaO-AM-2Fv"/>
+                                    <constraint firstItem="ubV-8n-oof" firstAttribute="top" secondItem="379-IV-4CY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="H0H-Hj-qeD"/>
+                                    <constraint firstItem="Z6R-Uj-weL" firstAttribute="leading" secondItem="mpR-be-EXY" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Ksf-QD-aEV"/>
+                                    <constraint firstItem="WPn-LU-6CW" firstAttribute="leading" secondItem="mpR-be-EXY" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="KtR-0N-jRb"/>
+                                    <constraint firstAttribute="trailing" secondItem="ubV-8n-oof" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="NMC-bx-bf8"/>
+                                    <constraint firstItem="v9y-e3-z6v" firstAttribute="leading" secondItem="ubV-8n-oof" secondAttribute="leading" type="default" id="Qs3-iO-Npb"/>
+                                    <constraint firstItem="OsY-r0-Zs8" firstAttribute="top" secondItem="mpR-be-EXY" secondAttribute="top" constant="20" symbolic="YES" type="default" id="ZRE-Vm-yOp"/>
+                                    <constraint firstItem="tG0-ni-tr8" firstAttribute="leading" secondItem="mpR-be-EXY" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="at9-jX-8cr"/>
+                                    <constraint firstAttribute="bottom" secondItem="v9y-e3-z6v" secondAttribute="bottom" constant="86" id="cf8-Yn-CpD"/>
+                                    <constraint firstItem="v9y-e3-z6v" firstAttribute="top" secondItem="tG0-ni-tr8" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gL4-RG-T9J"/>
+                                    <constraint firstItem="Z6R-Uj-weL" firstAttribute="centerX" secondItem="mpR-be-EXY" secondAttribute="centerX" type="default" id="kgF-tH-c8W"/>
+                                    <constraint firstItem="WPn-LU-6CW" firstAttribute="top" secondItem="Z6R-Uj-weL" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="qKM-8l-goO"/>
+                                    <constraint firstAttribute="trailing" secondItem="xnW-dU-xLb" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="qdu-ia-cGz"/>
+                                    <constraint firstAttribute="trailing" secondItem="Z6R-Uj-weL" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="rs7-83-mis"/>
+                                    <constraint firstItem="OsY-r0-Zs8" firstAttribute="leading" secondItem="mpR-be-EXY" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="wuQ-qx-Xxf"/>
+                                    <constraint firstItem="379-IV-4CY" firstAttribute="top" secondItem="xnW-dU-xLb" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="yTi-Pz-mn2"/>
+                                </constraints>
+                            </scrollView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="NoPhoto.png" translatesAutoresizingMaskIntoConstraints="NO" id="o6Y-xe-qrw">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="Rpg-r7-EQa"/>
+                                    <constraint firstAttribute="width" constant="85" id="xa7-jL-j1c"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="o6Y-xe-qrw" firstAttribute="top" secondItem="HuQ-oS-NkW" secondAttribute="top" constant="6" id="C4R-75-9Cs"/>
+                            <constraint firstItem="mpR-be-EXY" firstAttribute="leading" secondItem="HuQ-oS-NkW" secondAttribute="leading" type="default" id="CmQ-XW-s91"/>
+                            <constraint firstItem="mpR-be-EXY" firstAttribute="top" secondItem="o6Y-xe-qrw" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="VrR-eQ-Kye"/>
+                            <constraint firstItem="mpR-be-EXY" firstAttribute="trailing" secondItem="HuQ-oS-NkW" secondAttribute="trailing" type="default" id="l3v-KI-NSL"/>
+                            <constraint firstAttribute="bottom" secondItem="mpR-be-EXY" secondAttribute="bottom" constant="-10" id="l8G-am-HCI"/>
+                            <constraint firstItem="o6Y-xe-qrw" firstAttribute="centerX" secondItem="mpR-be-EXY" secondAttribute="centerX" type="default" id="ugP-uB-pbC"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="af2-26-IPY">
+                        <barButtonItem key="backBarButtonItem" title="&lt;" id="IjC-e8-cYS"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="g6E-rB-gSi">
+                            <connections>
+                                <action selector="savePersonInfo:" destination="KuH-yx-YvJ" id="CxT-zs-kRI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageViewPersonPhoto" destination="o6Y-xe-qrw" id="37P-pH-FcY"/>
+                        <outlet property="textFieldPersonEmail" destination="v9y-e3-z6v" id="ZUc-r6-Keb"/>
+                        <outlet property="textFieldPersonName" destination="Z6R-Uj-weL" id="GhZ-Sn-OYT"/>
+                        <outlet property="textFieldPersonNumber" destination="ubV-8n-oof" id="HZL-eO-KIn"/>
+                        <outlet property="textFieldPersonSurname" destination="xnW-dU-xLb" id="fNn-rL-DtS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z0v-Qy-Bwi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2227" y="-668"/>
+        </scene>
+        <!--Navigation Controller - Clientes-->
+        <scene sceneID="YyG-Rv-SVf">
+            <objects>
+                <navigationController title="Clientes" id="hf7-oX-e8H" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Clientes" id="mpL-k9-Ifq"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VYR-Gp-vYa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kGf-eR-qv8" kind="relationship" relationship="rootViewController" id="t8X-AI-GZ5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PEA-vy-KLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1054" y="-668"/>
+        </scene>
+        <!--Navigation Controller - Bancos-->
+        <scene sceneID="Onx-Kg-E3h">
+            <objects>
+                <navigationController title="Bancos" id="wci-dt-5ZJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Bancos" id="iJg-0K-zHC"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6o6-lM-RS7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gR2-sE-ZR1" kind="relationship" relationship="rootViewController" id="zAj-3j-oVg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="igr-j0-glY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1064" y="64"/>
+        </scene>
+        <!--Navigation Controller - Contas-->
+        <scene sceneID="VSO-1O-zkB">
+            <objects>
+                <navigationController title="Contas" id="h4m-Bc-kkj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Contas" id="ljW-n0-2kK"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KwL-5T-3cv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ykC-4q-QJE" kind="relationship" relationship="rootViewController" id="IhD-YK-v1I"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kzc-vx-4YB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1064" y="783"/>
+        </scene>
+        <!--Bank Investiment Account View Controller - Poupanças-->
+        <scene sceneID="kpU-0H-MdR">
+            <objects>
+                <viewController title="Poupanças" id="3dF-tS-mi1" customClass="BankInvestimentAccountViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JU8-A8-wUK">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="i3P-eG-uFS">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Cell" id="sJc-Am-5ze">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="3dF-tS-mi1" id="TqG-Oj-Dxj"/>
+                                    <outlet property="delegate" destination="3dF-tS-mi1" id="axk-jH-hT4"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="i3P-eG-uFS" firstAttribute="trailing" secondItem="JU8-A8-wUK" secondAttribute="trailing" type="default" id="HTM-fH-vGI"/>
+                            <constraint firstItem="i3P-eG-uFS" firstAttribute="bottom" secondItem="JU8-A8-wUK" secondAttribute="bottom" type="default" id="p0R-EM-kfZ"/>
+                            <constraint firstItem="i3P-eG-uFS" firstAttribute="top" secondItem="JU8-A8-wUK" secondAttribute="top" type="default" id="r2k-j0-nck"/>
+                            <constraint firstItem="i3P-eG-uFS" firstAttribute="leading" secondItem="JU8-A8-wUK" secondAttribute="leading" type="default" id="wKN-jM-g7A"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Poupança" id="4kU-gC-XvX">
+                        <barButtonItem key="backBarButtonItem" title="&lt;" id="VTH-lQ-bSH"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="n7I-A1-x1O">
+                            <connections>
+                                <action selector="addNovo:" destination="3dF-tS-mi1" id="XKr-aM-eEo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bankAccountTableView" destination="i3P-eG-uFS" id="1if-Cz-Gkn"/>
+                        <segue destination="uNn-0t-mV4" kind="push" identifier="showDetailsFromBankInvestimentAccount" id="ELi-d2-0Vu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hgm-Nh-lFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1590" y="1535"/>
+        </scene>
+        <!--Bank Investiment Account Details View Controller - Poupanças-->
+        <scene sceneID="Pmc-EA-a1Q">
+            <objects>
+                <viewController title="Poupanças" id="uNn-0t-mV4" customClass="BankInvestimentAccountDetailsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wkZ-9G-2OP">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Qntd meses" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JRb-nc-ZBA">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="calcProjection:" destination="uNn-0t-mV4" eventType="editingDidEnd" id="Kgi-Oa-bey"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Projeção" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gE3-Dt-Nfy">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Valor calculado" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5a-ZB-dzp">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Valor" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Jo-bV-I3h">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="op8-70-nPV">
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Número da Conta" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYP-m7-Ccb">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="241" id="CeX-XN-jp0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XPM-ie-CDE">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="280" id="m8y-Rx-kfv"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Número da Agência" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dX7-gj-UR6">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="225" id="Q9m-A3-urB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Ye-iY-4gi">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Percentual" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tcz-l6-dgq">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2FK-bc-oMc">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LUd-fx-Z0D">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Saldo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EI3-JD-1mE">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Numero do Banco" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qim-Ct-5dp">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KnT-vg-6Pm">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="278" id="yoX-EV-WUg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="7Ye-iY-4gi" firstAttribute="top" secondItem="dX7-gj-UR6" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="3ew-d9-Erk"/>
+                                    <constraint firstItem="LUd-fx-Z0D" firstAttribute="top" secondItem="EI3-JD-1mE" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="82y-Rg-AHR"/>
+                                    <constraint firstItem="2FK-bc-oMc" firstAttribute="trailing" secondItem="7Ye-iY-4gi" secondAttribute="trailing" type="default" id="8Tm-mi-8Dg"/>
+                                    <constraint firstItem="qim-Ct-5dp" firstAttribute="leading" secondItem="op8-70-nPV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="9DS-0Z-WWX"/>
+                                    <constraint firstItem="EI3-JD-1mE" firstAttribute="leading" secondItem="op8-70-nPV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Aap-MR-AQN"/>
+                                    <constraint firstItem="cYP-m7-Ccb" firstAttribute="leading" secondItem="op8-70-nPV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="GCS-Oi-Q4o"/>
+                                    <constraint firstItem="Tcz-l6-dgq" firstAttribute="leading" secondItem="op8-70-nPV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="HcG-tT-nwc"/>
+                                    <constraint firstItem="KnT-vg-6Pm" firstAttribute="top" secondItem="qim-Ct-5dp" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="JWw-PR-fS1"/>
+                                    <constraint firstItem="Tcz-l6-dgq" firstAttribute="top" secondItem="7Ye-iY-4gi" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="LSz-Uc-sZM"/>
+                                    <constraint firstItem="cYP-m7-Ccb" firstAttribute="top" secondItem="KnT-vg-6Pm" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="LyM-BF-GU8"/>
+                                    <constraint firstItem="LUd-fx-Z0D" firstAttribute="leading" secondItem="op8-70-nPV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="MSC-cf-hSG"/>
+                                    <constraint firstItem="XPM-ie-CDE" firstAttribute="top" secondItem="cYP-m7-Ccb" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="OPH-45-6Yn"/>
+                                    <constraint firstAttribute="bottom" secondItem="EI3-JD-1mE" secondAttribute="bottom" constant="12" id="Pxr-6E-w5e"/>
+                                    <constraint firstItem="LUd-fx-Z0D" firstAttribute="trailing" secondItem="2FK-bc-oMc" secondAttribute="trailing" type="default" id="SEF-O0-XZi"/>
+                                    <constraint firstAttribute="trailing" secondItem="KnT-vg-6Pm" secondAttribute="trailing" constant="46" id="TI4-rb-M6D"/>
+                                    <constraint firstItem="2FK-bc-oMc" firstAttribute="top" secondItem="Tcz-l6-dgq" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="UNg-ym-BS5"/>
+                                    <constraint firstItem="2FK-bc-oMc" firstAttribute="leading" secondItem="op8-70-nPV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Yc8-k6-xgd"/>
+                                    <constraint firstItem="XPM-ie-CDE" firstAttribute="leading" secondItem="op8-70-nPV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="YtJ-mk-5eA"/>
+                                    <constraint firstItem="EI3-JD-1mE" firstAttribute="top" secondItem="2FK-bc-oMc" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="a1h-tP-tO9"/>
+                                    <constraint firstItem="qim-Ct-5dp" firstAttribute="top" secondItem="op8-70-nPV" secondAttribute="top" type="default" id="cKj-WG-9NV"/>
+                                    <constraint firstItem="dX7-gj-UR6" firstAttribute="top" secondItem="XPM-ie-CDE" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="clg-xi-4Iz"/>
+                                    <constraint firstItem="dX7-gj-UR6" firstAttribute="leading" secondItem="op8-70-nPV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ogH-kX-aAx"/>
+                                    <constraint firstItem="XPM-ie-CDE" firstAttribute="trailing" secondItem="7Ye-iY-4gi" secondAttribute="trailing" type="default" id="sEr-N8-84k"/>
+                                    <constraint firstItem="7Ye-iY-4gi" firstAttribute="leading" secondItem="op8-70-nPV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="wOG-dz-Px1"/>
+                                    <constraint firstItem="XPM-ie-CDE" firstAttribute="trailing" secondItem="KnT-vg-6Pm" secondAttribute="trailing" type="default" id="yhN-fV-5ga"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JRb-nc-ZBA" firstAttribute="top" secondItem="gE3-Dt-Nfy" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="1hn-JY-A1S"/>
+                            <constraint firstItem="W5a-ZB-dzp" firstAttribute="top" secondItem="JRb-nc-ZBA" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="4r3-mH-DLn"/>
+                            <constraint firstItem="4Jo-bV-I3h" firstAttribute="leading" secondItem="JRb-nc-ZBA" secondAttribute="leading" type="default" id="7Zh-6l-2Yc"/>
+                            <constraint firstItem="op8-70-nPV" firstAttribute="centerX" secondItem="wkZ-9G-2OP" secondAttribute="centerX" type="default" id="EsT-49-wNe"/>
+                            <constraint firstItem="4Jo-bV-I3h" firstAttribute="top" secondItem="W5a-ZB-dzp" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="IF6-JI-3Tv"/>
+                            <constraint firstItem="gE3-Dt-Nfy" firstAttribute="top" secondItem="op8-70-nPV" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Ihe-iH-OVJ"/>
+                            <constraint firstItem="4Jo-bV-I3h" firstAttribute="trailing" secondItem="JRb-nc-ZBA" secondAttribute="trailing" type="default" id="LB0-gR-u93"/>
+                            <constraint firstItem="gE3-Dt-Nfy" firstAttribute="centerX" secondItem="JRb-nc-ZBA" secondAttribute="centerX" type="default" id="NBe-MC-Vb6"/>
+                            <constraint firstItem="op8-70-nPV" firstAttribute="top" secondItem="wkZ-9G-2OP" secondAttribute="top" type="default" id="S3f-57-mBd"/>
+                            <constraint firstAttribute="bottom" secondItem="4Jo-bV-I3h" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="bZa-KA-x0p"/>
+                            <constraint firstItem="op8-70-nPV" firstAttribute="leading" secondItem="wkZ-9G-2OP" secondAttribute="leading" constant="-13" id="hag-At-pph"/>
+                            <constraint firstItem="W5a-ZB-dzp" firstAttribute="centerX" secondItem="JRb-nc-ZBA" secondAttribute="centerX" type="default" id="vlb-0B-ezc"/>
+                            <constraint firstItem="W5a-ZB-dzp" firstAttribute="leading" secondItem="wkZ-9G-2OP" secondAttribute="leading" constant="97" id="yar-L3-YRc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="T88-XQ-vAx">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="cOH-Et-rZf">
+                            <connections>
+                                <action selector="saveBankInfo:" destination="uNn-0t-mV4" id="i8z-ST-dWx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textFieldAccountAgency" destination="7Ye-iY-4gi" id="kvi-GM-BNN"/>
+                        <outlet property="textFieldAccountBalance" destination="LUd-fx-Z0D" id="smH-W7-gHb"/>
+                        <outlet property="textFieldAccountBank" destination="KnT-vg-6Pm" id="b1f-uH-ScK"/>
+                        <outlet property="textFieldAccountNumber" destination="XPM-ie-CDE" id="QVP-MP-5za"/>
+                        <outlet property="textFieldAccountPercent" destination="2FK-bc-oMc" id="hw2-iH-aIN"/>
+                        <outlet property="textFieldQntdMeses" destination="JRb-nc-ZBA" id="Ru1-9N-4ZS"/>
+                        <outlet property="textFieldValorCalculado" destination="4Jo-bV-I3h" id="OTX-Gv-pHG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dQ1-J4-cWe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2237" y="1535"/>
+        </scene>
+        <!--Navigation Controller - Poupanças-->
+        <scene sceneID="lbP-74-unT">
+            <objects>
+                <navigationController title="Poupanças" id="JCI-7G-rs6" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Poupança" id="QY6-z9-3cy"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tZL-kq-pGP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3dF-tS-mi1" kind="relationship" relationship="rootViewController" id="gAD-kW-9nR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9XM-gj-iQS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1064" y="1535"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="NoPhoto.png" width="360" height="450"/>
+    </resources>
+    <classes>
+        <class className="BankAccountDetailsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BankAccountDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="saveBankInfo:"/>
+                <relationship kind="outlet" name="textFieldAccountAgency" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textFieldAccountBank" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textFieldAccountNumber" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="BankAccountViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BankAccountViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addNovo:"/>
+                <relationship kind="outlet" name="bankAccountTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="BankDetailsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BankDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="saveBankInfo:"/>
+                <relationship kind="outlet" name="textFieldBankName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textFieldBankNumber" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="BankInvestimentAccountDetailsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BankInvestimentAccountDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="calcProjection:"/>
+                <relationship kind="action" name="saveBankInfo:"/>
+                <relationship kind="outlet" name="textFieldAccountAgency" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textFieldAccountBalance" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textFieldAccountBank" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textFieldAccountNumber" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textFieldAccountPercent" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textFieldQntdMeses" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textFieldValorCalculado" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="BankInvestimentAccountViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BankInvestimentAccountViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addNovo:"/>
+                <relationship kind="outlet" name="bankAccountTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="BankViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BankViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addNovo:"/>
+                <relationship kind="outlet" name="bankTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PersonDetailsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PersonDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelAndClose:"/>
+                <relationship kind="action" name="savePersonInfo:"/>
+                <relationship kind="outlet" name="imageViewPersonPhoto" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="textFieldPersonEmail" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textFieldPersonName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textFieldPersonNumber" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textFieldPersonSurname" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="PersonViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PersonViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
